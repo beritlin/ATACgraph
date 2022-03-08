@@ -5,62 +5,50 @@
 ## Installation
 ### Download the source code and install the requirements.
 
+```bash
+git clone https://github.com/RitataLU/ATACgraph.git
+cd ATACgraph
+sudo sh ./base.txt
+
 ```
-$ git clone https://github.com/RitataLU/ATACgraph.git
-$ cd ATACgraph
-$ sudo sh ./base.txt
 
-``` 
-
-### Add your ATACgraph path to the PATH.
-
-(1)  Edit bash profile
-  
-``` 
-$ vi ~/.bash_profile
-``` 
-   
-(2) Add ATAC-graph/script path to the PATH environment variable.
- 
-``` 
-$ PATH=$PATH:(ATACgraph/script file path)
-$ source ~/.bash_profile
-
-```    
 ## Run demo
 Download the demo input file in ATACgraph folder
 
+```bash
+cd ATACgraph/data
+tar -xvf data.tar.gz 
 ```
-$ cd ATACgraph/demo
-$ tar -xvf demo.tar.gz 
-``` 
-### Remove mitochondria chrmosome
+### Preprocessing of alignment read
+
+#### Remove mitochondria chromosome
 
 **Input:**
+
 * ATAC-seq bam file
 ``` 
-$ ATACgraph 00_rmChr demo.bam demo_rmM.bam chrM
+$ ATACgraph 00_rmChr data.bam data_rmM.bam chrM
 ```
 **Output:**
 * ATAC-seq bam file after removing mitochondria chromosome named demo_rmM.bam
 
-## Fragment length distribution and Fast Fourier Transform (FFT)
+#### Fragment length distribution and Fast Fourier Transform (FFT)
 
 **Input:**
 * ATAC-seq bam file after removing mitochondria chromosome
 
 ```
-$ ATACgraph 01_calFragDist demo_rmM.bam demo_rmM_fragment demo_rmM_FFT
+$ ATACgraph 01_calFragDist data_rmM.bam demo_rmM_fragment demo_rmM_FFT
 
 ```
-              
+
 **Output:** 
 * 2 figures (demo_rmM_fragment.png & demo_rmM_FFT.png)
 
-
-## Selectiing fragments size 
+#### Selectiing fragments size 
 
 **Input:**
+
 * ATAC-seq bam file after removing mitochondria chromosome
 
 ```
@@ -161,7 +149,6 @@ ATACgraph 03_genePlot demo_rmM_peakcall.narrowpeak demo_rmM_peakcall_coverage.bw
      * demo_rmM_peakcall_peaks.narrowPeak_cds.txt   
      * demo_rmM_peakcall_peaks.narrowPeak_gene_body.txt             
      * demo_rmM_peakcall_peaks.narrowPeak_introns.txt
-
 
 
 
