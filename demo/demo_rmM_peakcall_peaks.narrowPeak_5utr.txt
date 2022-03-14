@@ -1,0 +1,1 @@
+chr22	17565848	17565981	NM_014339_5utr,NM_001289905_5utr	1,1	+,+	chr22	17565697	17566043	/work1/home/peiyu/tools/ATACgraph/demo/demo/demo_rmM_peakcall_peak_1	18	.	6.20733	9.14335	1.89660	36	133
