@@ -2,6 +2,18 @@
 
 ATACgraph is a simple and effective software for the analysis of ATAC-Seq data. It contains 12 analyses to profile (epi)genome. 
 
+
+
+###:zap: UPDATE
+
+- Peakcalling using MACS3 and add allowing input path argument to tool
+
+- geneplot .pdf files will located in the same path with input.bw and name as  input.bw_plot.pdf 
+
+- enrichment plot has changed y-axis scale
+
+  
+
 # Citations
 If you use ATACgraph for your analysis, please cite it using the following doi: https://doi.org/10.3389/fgene.2020.618478
 
@@ -21,7 +33,7 @@ If you use ATACgraph for your analysis, please cite it using the following doi: 
 IDR require python 3.5
 ```
 
-* [MACS2](https://github.com/taoliu/MACS)
+* [MACS3](https://github.com/taoliu/MACS) 
 * Python Modules:
   * Numpy
   * pandas
@@ -42,7 +54,7 @@ Please follow the tutorial of example use case
 ## Docker version
 * [ATACgraph Galaxy](https://hub.docker.com/r/lsbnb/galaxy_atacgraph)
 
- 
+
 ## Linux Command Version
 1. Download the source code and install the requirements.
 
@@ -52,23 +64,23 @@ $ git clone https://github.com/RitataLU/ATACgraph.git
 $ cd ATACgraph
 $ sudo sh ./base.txt
 
-``` 
+```
 
 2. Add your ATACgraph path to the PATH.
 
 (1)  Edit bash profile
-  
+
 ``` 
 $ vi ~/.bash_profile
-``` 
-   
+```
+
    (2) Add ATAC-graph/script path to the PATH environment variable.
- 
+
 ``` 
 $ PATH=$PATH:(ATACgraph/script file path)
 $ source ~/.bash_profile
 
-```    
+```
 
 # Running ATACgraph
 
@@ -205,6 +217,7 @@ optional arguments:
 ## Generating fragment size tracks 
 
 **Input:**
+
 * ATAC-seq bam file after removing mitochondria chromosome
 
 ```
@@ -257,6 +270,7 @@ optional arguments:
   -ES EXTEND      extend size from integration site (bp), default: 100
   -bs BINSIZE     bin size for bigwig (bp), default: 10
   -c CONTROL_BAM  input control bam file, default: none
+  -p path  				path to MACS3, default:
   
 ```
 
@@ -426,7 +440,7 @@ optional arguments:
      * peakcall_peaks.narrowPeak_introns.txt
 
 
-   
+
 * Figures 
    * Fold enrichment analysis of open regions in genomic features (.Fold_Enrichment.png)
    ![Enrichment](https://github.com/RitataLU/ATACgraph_v2/blob/master/FoldEnrichment.png)
@@ -434,9 +448,10 @@ optional arguments:
    
    * heatmap, metaplot ATAC-seq abundance related to genes     
    * heatmap, metaplot ATAC-seq abundance related toand peaks
-  
-   <img align="left" width="300" height="900" src="https://github.com/RitataLU/ATACgraph/blob/master/TKO.integ_coverage.bwgene_body_heatmap.png">
-
+    
+   
+<img align="left" width="300" height="900" src="https://github.com/RitataLU/ATACgraph/blob/master/TKO.integ_coverage.bwgene_body_heatmap.png">
+   
    <img align="right" width="300" height="900" src="https://github.com/RitataLU/ATACgraph/blob/master/Peak_heatmap.png">
    
 
