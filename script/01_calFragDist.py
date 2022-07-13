@@ -71,6 +71,10 @@ def fragment_distribution(input_bam,output1,output2):
     plt.yticks(fontsize=20)
     ax.set_xlabel('Period (bp)', fontsize=20)
     ax.set_ylabel('Power', fontsize=20)
+    ymin, ymax = plt.ylim()
+    xpeak=np.interp(max_y_pos, 1/d2.freq,10 * np.log10(d2.value + 1))
+    xy="("+str(xpeak)[0:4]+","+str(max_y_pos)+")"
+    plt.text(250,ymax-1.5,xy, fontsize=20)
     ax.set_title('Period of fragment distribution', fontsize=20)
     outfile2 = output2
     plt.savefig(outfile2,dpi=300,bbox_inches='tight')
