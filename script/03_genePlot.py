@@ -85,12 +85,12 @@ def associate(input_peak,samplename,promoter):
 
 def coverage_heatmap(coverage,samplename,input_peak):
         subprocess.call('''computeMatrix scale-regions -S %s -R %s --missingDataAsZero -bs 10 -a 1000 -b 1000 -out %s --outFileNameMatrix %s 2>&1'''%(coverage,samplename+'_gene_body_merge.bed',coverage+'gene_body'+'.matrix.gz',coverage+'gene_body'+'.matrix.txt'),shell=True)
-        subprocess.call('''plotHeatmap -m %s -out %s --legendLocation none'''%(coverage+'gene_body'+'.matrix.gz','gene_body_heatmap.pdf'),shell=True)
+        subprocess.call('''plotHeatmap -m %s -out %s --legendLocation none'''%(coverage+'gene_body'+'.matrix.gz',coverage+'_gene_body_heatmap.pdf'),shell=True)
 
         #peak heatmap
         subprocess.call('''computeMatrix reference-point --referencePoint center -S %s -R %s --missingDataAsZero -bs 10 -a 1000 -b 1000 -out %s --outFileNameMatrix %s 2>&1'''%(coverage,input_peak,coverage+'_peak'+'.matrix.gz',coverage+'_peak'+'.matrix.txt'),shell=True)
 
-        subprocess.call('''plotHeatmap --refPointLabel peak  --regionsLabel peaks --xAxisLabel 'peak distance(bp)' -m %s -out %s --legendLocation none'''%(coverage+'_peak'+'.matrix.gz','Peak_heatmap.pdf'),shell=True)
+        subprocess.call('''plotHeatmap --refPointLabel peak  --regionsLabel peaks --xAxisLabel 'peak distance(bp)' -m %s -out %s --legendLocation none'''%(coverage+'_peak'+'.matrix.gz',coverage+'_Peak_heatmap.pdf'),shell=True)
 
 #Making annotation_peak_associate file
 def annotation_peak(input_peak,samplename):
@@ -139,11 +139,11 @@ def enrichment(input_peak,genome_bp,samplename):
         ax1.bar(annotationname_index, fold_enrich, align='center',color=colors)
         ax1.xaxis.set_ticks_position('bottom')
         ax1.yaxis.set_ticks_position('left')
-        plt.ylim(ymin=-2,ymax=6)
+        plt.ylim(ymin=-13,ymax=6)
         plt.xticks(annotationname_index, annotationname, fontsize='small')
         plt.ylabel("Fold Enrichment (log2)")
         plt.title('')
-        plt.savefig('Fold_Enrichment.pdf',dpi=400,bbox_inches='tight')
+        plt.savefig(input_peak+'Fold_Enrichment.pdf',dpi=400,bbox_inches='tight')
         plt.close(fig)
         fe_table=pd.DataFrame([fold_enrich],columns=annotationname)
         fe_table.to_csv(input_peak+'_Fole_Enrichment_Table.txt', index=None, sep="\t")

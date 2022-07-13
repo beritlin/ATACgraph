@@ -16,6 +16,7 @@ def main():
 	parser.add_argument("-ES",help="extend size from integration site (bp), default: 100",dest='extend',default=100,type=int)
 	parser.add_argument("-bs",help="bin size for bigwig (bp), default: 10",dest='binsize',default=10,type=int)
 	parser.add_argument("-c",dest = "control_bam",help='input control bam file, default: none',default='',type=str)
+	parser.add_argument('-p',help='the path to macs3',default=" ",dest='path',type=str)
 	parser.add_argument('input_bam',help='input ATAC-seq bam file',type=str)
 	parser.add_argument('output_name',help='name for output files',type=str)
 	parser.add_argument('gene_bed',help='Gene or promoter annotation bed file, either gene_body_bed6.bed or gene_promoter_bed6.bed',type=str)
@@ -31,7 +32,9 @@ def main():
 	extSize=args.extend
 	bs=args.binsize
 	gene = args.gene_bed
-        #clean bam files
+	path = args.path
+	
+	#clean bam files
 	#index :print error message (try)
 
 	subprocess.call('''samtools index %s'''%(input_bam),shell=True)
@@ -39,7 +42,7 @@ def main():
 	#option1 integration site/ tn5 cutting site
 	if (args.separate == 1):
 		# shift: move read -50 ,extend left and right 100
-		subprocess.call('''macs2 callpeak %s -t %s --nomodel --shift -%s --extsize %s -n %s 2>&1'''%(control_para,input_bam,shiftSize,extSize,Outname), shell=True)
+		subprocess.call(path+'''macs3 callpeak %s -t %s --nomodel --shift -%s --extsize %s -n %s 2>&1'''%(control_para,input_bam,shiftSize,extSize,Outname), shell=True)
 		#Making bigwig/ bamcoverage limit: cannot use minus
 		#subprocess.call('''bamCoverage -b %s -bs %s --normalizeUsingRPKM --Offset 1 20 -o %s 2>&1'''%(input_bam, input_bam+'_coverage.bw'),shell=True
 		subprocess.call('''bamCoverage -b %s -bs %s --normalizeUsing RPKM --Offset 1 20 -o %s 2>&1'''%(input_bam, bs, Outname+'_coverage.bw'),shell=True)
@@ -48,7 +51,7 @@ def main():
 
 	elif (args.separate == 2):
 		#-f: paired end
-		subprocess.call('''macs2 callpeak %s -t %s --format BAMPE -n %s 2>&1'''%(control_para,input_bam,Outname), shell=True)
+		subprocess.call(path+'''macs3 callpeak %s -t %s --format BAMPE -n %s 2>&1'''%(control_para,input_bam,Outname), shell=True)
 		#Making bam coverage
 		#subprocess.call('''bamCoverage -b %s -bs %s --normalizeUsing RPKM -e -o %s 2>&1'''%(input_bam, bs, Outname+'_coverage.bw'),shell=True)
 		subprocess.call('''bamCoverage -b %s -bs %s --normalizeUsing RPKM -e -o %s 2>&1'''%(input_bam, bs, Outname+'_coverage.bw'),shell=True)
