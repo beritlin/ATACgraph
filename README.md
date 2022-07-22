@@ -4,13 +4,15 @@ ATACgraph is a simple and effective software for the analysis of ATAC-Seq data. 
 
 
 
-###:zap: UPDATE
+**:zap: UPDATE**
 
 - Peakcalling using MACS3 and add allowing input path argument to tool
 
 - geneplot .pdf files will located in the same path with input.bw and name as  input.bw_plot.pdf 
 
 - enrichment plot has changed y-axis scale
+
+- add Docker image for python version (using MACS2)
 
   
 
@@ -53,6 +55,7 @@ Please follow the tutorial of example use case
 # Installation
 ## Docker version
 * [ATACgraph Galaxy](https://hub.docker.com/r/lsbnb/galaxy_atacgraph)
+* [ATACgraph Python](https://hub.docker.com/r/peiyulin/atacgraph)
 
 
 ## Linux Command Version
@@ -448,12 +451,12 @@ optional arguments:
    
    * heatmap, metaplot ATAC-seq abundance related to genes     
    * heatmap, metaplot ATAC-seq abundance related toand peaks
-    
    
+   
+
 <img align="left" width="300" height="900" src="https://github.com/RitataLU/ATACgraph/blob/master/TKO.integ_coverage.bwgene_body_heatmap.png">
-   
+
    <img align="right" width="300" height="900" src="https://github.com/RitataLU/ATACgraph/blob/master/Peak_heatmap.png">
-   
 
 
 

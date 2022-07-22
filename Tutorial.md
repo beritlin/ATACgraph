@@ -6,18 +6,16 @@
 ### Download the source code and install the requirements.
 
 ```bash
-git clone https://github.com/RitataLU/ATACgraph.git
+git clone https://github.com/beritlin/ATACgraph.git
 cd ATACgraph
 sudo sh ./base.txt
-
 ```
 
 ## Run demo
 Download the demo input file in ATACgraph folder
 
 ```bash
-cd ATACgraph/data
-tar -xvf data.tar.gz 
+cd ATACgraph/demo
 ```
 ### Preprocessing of alignment read
 
@@ -27,7 +25,7 @@ tar -xvf data.tar.gz
 
 * ATAC-seq bam file
 ``` 
-$ ATACgraph 00_rmChr data.bam data_rmM.bam chrM
+$ ATACgraph 00_rmChr demo.bam demo_rmM.bam chrM
 ```
 **Output:**
 * ATAC-seq bam file after removing mitochondria chromosome named demo_rmM.bam
@@ -38,7 +36,7 @@ $ ATACgraph 00_rmChr data.bam data_rmM.bam chrM
 * ATAC-seq bam file after removing mitochondria chromosome
 
 ```
-$ ATACgraph 01_calFragDist data_rmM.bam demo_rmM_fragment demo_rmM_FFT
+$ ATACgraph 01_calFragDist demo_rmM.bam demo_rmM_fragment demo_rmM_FFT
 
 ```
 
