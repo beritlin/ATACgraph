@@ -47,6 +47,11 @@ IDR require python 3.5
   * deepTools==3.3.0
   * scikit-learn
   
+
+> **NOTE:**
+>
+> Please check the [supplement](./supplement.md) if you have issues with downloading other tools.
+
 # Tutorial 
 Please follow the tutorial of example use case
 * [Tutorial](https://github.com/RitataLU/ATACgraph/blob/master/Tutorial.md)
