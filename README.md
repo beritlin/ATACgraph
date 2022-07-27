@@ -68,7 +68,7 @@ Please follow the tutorial of example use case
 
 
 ```
-$ git clone https://github.com/RitataLU/ATACgraph.git
+$ git clone https://github.com/beritlin/ATACgraph.git
 $ cd ATACgraph
 $ sudo sh ./base.txt
 
