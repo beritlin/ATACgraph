@@ -1,5 +1,7 @@
 # ATACgraph
 
+![Github All Releases](https://img.shields.io/github/downloads/beritlin/ATACgraph/total.svg?style=for-the-badge)             ![issue](https://img.shields.io/github/issues/beritlin/ATACgraph?style=for-the-badge)              ![star](https://img.shields.io/github/stars/beritlin/ATACgraph?style=for-the-badge) 
+
 ATACgraph is a simple and effective software for the analysis of ATAC-Seq data. It contains 12 analyses to profile (epi)genome. 
 
 
@@ -54,7 +56,7 @@ IDR require python 3.5
 
 # Tutorial 
 Please follow the tutorial of example use case
-* [Tutorial](https://github.com/RitataLU/ATACgraph/blob/master/Tutorial.md)
+* [Tutorial](https://github.com/beritlin/ATACgraph/blob/master/Tutorial.md)
 
 
 # Installation
