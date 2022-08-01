@@ -30,7 +30,7 @@ apt-get install bedtools
 
 ```
 #MACS2 (require python2)
-pip install macs==2.0.10.7022012
+pip install macs==2.1.2.1
 
 #MACS3 (require python3)
 pip install macs
