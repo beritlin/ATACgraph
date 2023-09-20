@@ -23,7 +23,7 @@ If you use ATACgraph for your analysis, please cite it using the following doi: 
 
 
 # ATACgraph Pipeline
-![ATACgraph](https://github.com/RitataLU/ATACgraph/blob/master/Figures/ATACgraphMain.png)
+![ATACgraph](https://github.com/beritlin/ATACgraph/blob/master/Figures/pipeline.png)
 
 
 
